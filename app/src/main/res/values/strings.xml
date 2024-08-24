@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Insomnia</string>
+    <string name="stay_awake_tile_label">Stay Awake</string>
 </resources>
