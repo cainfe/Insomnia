@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Insomnia</string>
     <string name="stay_awake_tile_label">Stay Awake</string>
+    <string name="keep_awake_channel_id">keep_awake_channel</string>
+    <string name="keep_awake_channel_name">Insomnia Status</string>
+    <string name="keep_awake_channel_description">Notifications regarding Insomnia\'s current status</string>
+    <string name="keep_awake_notification_title">Insomnia is keeping your device awake.</string>
+    <string name="keep_awake_notification_text">Your screen will stay awake until Insomnia is disabled.</string>
+    <string name="keep_awake_notification_action_stop">Stop</string>
 </resources>
