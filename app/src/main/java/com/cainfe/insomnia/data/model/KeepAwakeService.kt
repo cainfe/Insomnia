@@ -12,9 +12,12 @@ import com.cainfe.insomnia.R
 import com.cainfe.insomnia.util.Constants
 
 class KeepAwakeService : Service() {
-    private val TAG = "KeepAwakeService"
     private lateinit var wakeLock: PowerManager.WakeLock
     private val notificationId = 1
+
+    companion object {
+        var isRunning: Boolean = false
+    }
 
     override fun onBind(intent: Intent?) = null
 
