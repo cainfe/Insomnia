@@ -7,7 +7,9 @@ import android.util.Log
 import com.cainfe.insomnia.util.Constants
 
 class KeepAwakeQSTileService: TileService() {
-    private val TAG = "KeepAwakeQSTileService"
+    companion object {
+        private const val TAG = "KeepAwakeQSTileService"
+    }
 
     override fun onClick() {
         super.onClick()
