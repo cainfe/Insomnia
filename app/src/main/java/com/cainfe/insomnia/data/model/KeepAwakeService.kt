@@ -3,9 +3,11 @@ package com.cainfe.insomnia.data.model
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.PowerManager
+import android.service.quicksettings.TileService
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.cainfe.insomnia.R
@@ -16,6 +18,7 @@ class KeepAwakeService : Service() {
     private val notificationId = 1
 
     companion object {
+        var isRunning: Boolean = false
         private const val TAG = "KeepAwakeService"
     }
 
@@ -49,14 +52,18 @@ class KeepAwakeService : Service() {
     private fun acquireWakeLock() {
         if (!wakeLock.isHeld) {
             wakeLock.acquire()
-            Log.v(TAG, "WakeLock acquired")
+            Log.d(TAG, "WakeLock acquired")
+            isRunning = true
+            TileService.requestListeningState(this, ComponentName(this, KeepAwakeQSTileService::class.java))
         }
     }
 
     private fun releaseWakeLock() {
         if (wakeLock.isHeld) {
             wakeLock.release()
-            Log.v(TAG, "WakeLock released")
+            Log.d(TAG, "WakeLock released")
+            isRunning = false
+            TileService.requestListeningState(this, ComponentName(this, KeepAwakeQSTileService::class.java))
         }
     }
 
